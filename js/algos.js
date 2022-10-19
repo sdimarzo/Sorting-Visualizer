@@ -28,7 +28,7 @@ export async function insertionSort(_graph)
 
         await waitforme(speed_slider.value);
 
-        while (j>=0 && parseInt(bars[j].style.height) > parseInt(target))
+        while (j>=0 && parseInt(_graph[j].style.height) > parseInt(target))
         {
             _graph[j].style.backgroundColor = "#f6efa6";
             let tmp = _graph[j].style.height;

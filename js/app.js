@@ -1,5 +1,6 @@
 import {bubbleSort, insertionSort, selectionSort, mergeSort, quickSort} from "./algos.js";
 
+
 const visualizer = document.getElementById('graph');
 const new_array = document.getElementById('new_array');
 const size_slider = document.getElementById('size_slider');
@@ -11,8 +12,12 @@ const merge_sort_btn = document.getElementById('merge_sort');
 const quick_sort_btn = document.getElementById('quick_sort');
 const bars = document.getElementsByClassName("bar");
 
-function getRandomInt(max) {
-    return Math.floor(Math.random() * max) + 10;
+const MIN_HEIGHT = 50;
+const MAX_HEIGT = 500;
+
+
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
 function deleteGraph()
@@ -20,29 +25,22 @@ function deleteGraph()
     graph.innerHTML = '';
 }
 
-// creates a random array of the size selected by the user using the slider and generates a graph from it.
-// Returns the array
 function generateGraph()
-{
-    
+{    
     deleteGraph();
 
     let size = parseInt(size_slider.value);
-    let arr = new Array();
 
     for (let i = 0; i < size; i++)
     {
-        arr[i] = getRandomInt(100);
         let bar = document.createElement("div");
         bar.className = "bar";
-        bar.style.height = arr[i] * 5 + "px";
+        bar.style.height = getRandomInt(MIN_HEIGHT, MAX_HEIGT) + "px";
         bar.style.backgroundColor = "#A288E3";
         bar.style.margin = 3 + "px";
         bar.style.width = 30 + "px";
         visualizer.appendChild(bar);
     }
-
-    return arr;
 }
 
 function disableButtons()
@@ -69,15 +67,10 @@ function enableButtons()
     quick_sort_btn.disabled = false;
 }
 
-let array = generateGraph();
 
-size_slider.addEventListener("input", function() {
-    array = generateGraph();
-});
+size_slider.addEventListener("input", generateGraph);
 
-new_array.addEventListener("click", function() {
-    array = generateGraph();
-})
+new_array.addEventListener("click", generateGraph);
 
 insertion_sort_btn.addEventListener("click", async () =>
 {
@@ -113,3 +106,5 @@ quick_sort_btn.addEventListener("click", async () =>
     await quickSort(bars, 0, bars.length-1);
     enableButtons();
 });
+
+generateGraph();
