@@ -1,0 +1,105 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Work Sans', sans-serif; 
+    background: hsla(0, 0%, 98%, 1);
+    background: linear-gradient(360deg, hsla(0, 0%, 98%, 1) 0%, hsla(0, 0%, 89%, 1) 100%);
+    background: -moz-linear-gradient(360deg, hsla(0, 0%, 98%, 1) 0%, hsla(0, 0%, 89%, 1) 100%);   
+    background: -webkit-linear-gradient(360deg, hsla(0, 0%, 98%, 1) 0%, hsla(0, 0%, 89%, 1) 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#FAFAFA", endColorstr="#E4E4E4", GradientType=1 );
+}
+
+
+header {
+    display: flex;  
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 10em;
+    min-width: 1000px;
+    padding: 30px 10%;
+    list-style: none;
+}
+
+.items, .speed {
+    display: flex;
+    align-items: center;
+}
+
+.items h4, .speed h4{
+    margin-right: 10px;
+}
+
+.navbar li {
+    display: inline-block;
+    padding: 0 20px;
+}
+
+button {
+    background-color: transparent;
+    font-family: inherit;
+    padding: 10px;
+    color: #050609;
+    border: 2px solid #A288E3;
+    border-radius: 10px;
+    transition: all .3s ease;
+}
+
+button:hover {
+    background-color: #A288E3;
+}
+
+.slider {
+    -webkit-appearance:none;
+    width:100%;
+    height:3px;
+    background:#A288E3;
+    border-radius: 50%;
+    outline:none;
+ }
+
+ .slider::-webkit-slider-thumb {
+    -webkit-appearance:none;
+    
+    background:#A288E3;
+    width:18px;
+    height:18px;
+    border-radius:50%;
+    cursor:pointer;
+ }
+.container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50p;
+}
+
+.bar
+{
+    border-radius: 5px;
+}
+
+.complexity-table {
+    display: flex;
+    justify-content: center;
+    padding: 10%;
+}
+
+td, th{
+    border: 1px solid #050609;
+    text-align: center;
+    padding: 20px 200px;
+    transition: all .3s ease;
+}
+td:hover{
+    color: #A288E3;
+}
+
+#new_array {
+    margin-right: 20px;
+}
